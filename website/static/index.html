@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>KerboScript IDE</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<body>
+  <table width="100%" height="100%">
+    <tr>
+      <td>
+        <h1><a href="http://ksp-kos.github.io/KOS_DOC/language.html">kOS</a> &gt;
+          <a href="http://ksp-kos.github.io/KOS_DOC/language.html">KerboScript Editor</a> &gt; Current Script</h1>
+
+        <p>To Use the Editor Simply drag an element from the Left too the right and connect them to make a program.</p>
+        <!--<a href="javascript:BlocklyStorageClient.saveFile();">Save Blocks (File)</a> | <a href="javascript:BlocklyStorageClient.saveClipboard();">Save Blocks (Clipboard)</a> | <a href="javascript:BlocklyStorageClient.loadFile()">Load Blocks (File)</a> | <a href="javascript:BlocklyStorageClient.loadClipboard()">Load Blocks (Clipboard)</a>-->
+
+        <a href="javascript:showDataWindow();">Show Data Window</a> | <a href="javascript:saveXML();">Save Blocks</a> | <a href="javascript:loadXML();">Load Blocks</a> | <a href="javascript:showCode();">Show Code</a>
+      </td>
+    </tr>
+    <tr>
+      <td height="100%">
+        <script>
+          window.dataWindowText = "No Content Loaded...";
+
+          var DataWindow = "none";
+          var DataWindowOpen = false;
+
+          //document.domain = "kosedit.eforen.tv";
+          function blocklyLoaded(blockly, storage) {
+            // Called once Blockly is fully loaded.
+            window.Blockly = blockly;
+            window.BlocklyStorageClient = storage;
+          }
+
+          function showCode() {
+            // Generate JavaScript code and display it.
+            Blockly.kOS.INFINITE_LOOP_TRAP = null;
+            var code = Blockly.kOS.workspaceToCode();
+
+            if(!DataWindowOpen){
+              DataWindow = window.open("editor/datawindow.html", "codeWindow", 'width=800,height=600,toolbar=no');
+              DataWindow.focus();
+              DataWindowOpen = true;
+              $(DataWindow).load(function() {
+                DataWindow.document.getElementById('codearea').value = code;
+                  $(DataWindow).unload(function(){  // Bind the actual event
+                    DataWindowOpen = false;
+                  });
+              });
+            } else{
+              DataWindow.document.getElementById('codearea').value = code;
+            }
+          }
+
+          function showDataWindow() {
+            DataWindowOpen = true;
+            DataWindow = window.open("editor/datawindow.html", "dataWindow", 'width=800,height=600,toolbar=no');
+            DataWindow.focus();
+            $(DataWindow).load(function() {
+              $(DataWindow).unload(function(){  // Bind the actual event
+                DataWindowOpen = false;
+              });
+            });
+          }
+
+          function saveXML() {
+              BlocklyStorageClient.save();
+              if(!DataWindowOpen){
+                DataWindow = window.open("editor/datawindow.html", "dataWindow", 'width=800,height=600,toolbar=no');
+                DataWindow.focus();
+                DataWindowOpen = true;
+                $(DataWindow).load(function() {
+                  DataWindow.document.getElementById('codearea').value = BlocklyStorageClient.xmlText;
+                    $(DataWindow).unload(function(){  // Bind the actual event
+                      DataWindowOpen = false;
+                    });
+                });
+              } else{
+                DataWindow.document.getElementById('codearea').value = BlocklyStorageClient.xmlText;
+              }
+          }
+
+          function idealPopUp(url){
+            var windowName = "dataWindow";
+            var windowSize = 'width=800,height=600,toolbar=no,scrollbars=yes';
+
+            // Wrap new window object in a jQuery object
+            var $idealPopUpWindow = $(window.open(url, windowName, windowSize));
+
+            $idealPopUpWindow.load( function () {     //  Execute this function on load
+                //$idealPopUpWindow.find('#codearea').val("Testing");
+                alert("Loaded3..."+$idealPopUpWindow.find('#codearea').val());
+                $idealPopUpWindow.unload(function(){  // Bind the actual event
+                    alert("BING2");
+                });
+            });
+          }
+
+          function loadXML() {
+            if(!DataWindowOpen){
+              DataWindow = window.open("editor/datawindow.html", "dataWindow", 'width=800,height=600,toolbar=no');
+              DataWindow.focus();
+              DataWindowOpen = true;
+              $(DataWindow).load(function() {
+                  //DataWindow.document.getElementById('codearea').value = BlocklyStorageClient.xmlText;
+                  $(DataWindow).unload(function(){  // Bind the actual event
+                    DataWindowOpen = false;
+                  });
+              });
+            } else{
+              try {
+                BlocklyStorageClient.xmlText = DataWindow.document.getElementById('codearea').value;
+                BlocklyStorageClient.load();
+              }catch(e){
+                alert("Could not load save data. It could be corrupt.");
+              }
+            }
+          }
+        </script>
+        <iframe src="editor/index.html" class="kOSEdit-frame"></iframe>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="http://kosedit.eforen.tv">kOS-Edit</a> Created by <a href="http://eforen.tv">Ariel Lothlorien</a> | <span class="affiliation">Not affiliated in anyway with kOS.</span>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

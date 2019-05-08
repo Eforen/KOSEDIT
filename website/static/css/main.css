@@ -1,0 +1,54 @@
+/* Darkness Stylesheet */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  background-color: #161713;
+  color: #BEDAED;
+  font-family: sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h1 {
+  font-weight: normal;
+  font-size: 140%;
+}
+.kOSEdit-frame {
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-color: #ddd;
+  border-width: 0 1px 1px 0;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+.affiliation {
+  font-size: small;
+}
+
+a:link { 
+  color: #BEDAED;
+}
+
+a:visited { 
+  color: #BEDAED;
+}
+
+a:hover { 
+  color: #161713;
+}
+
+td.taboff:hover {
+  background-color: #333;
+}
+
+#content_kerboscript.content {
+  background-color: #1C1816 !important;
+}
+
+#content_xml.content {
+  background-color: #1C1816 !important;
+  color: #BEDAED;
+}

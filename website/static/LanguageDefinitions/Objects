@@ -1,0 +1,191 @@
+vessel_properties
+	Type: vessel
+	Tooltip: 
+	Help: http://ksp-kos.github.io/KOS_DOC/structures/vessels.html#vessels
+	Options:
+		Template:
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+				Template:
+					Type: 
+					Tooltip: 
+					Help:
+					Options: 
+		Vessel
+			Type: struct
+			Type: Orbitable
+			Type: Vessel
+			Tooltip: Vessel Object
+			Help: http://ksp-kos.github.io/KOS_DOC/structures/vessels/vessel.html
+			Options: 
+				CONTROL:
+					Type: Control
+					Tooltip: Raw flight controls
+				BEARING:
+					Type: scalar_deg
+					Tooltip: relative heading to this vessel
+				HEADING:
+					Type: scalar_deg
+					Tooltip: Absolute heading to this vessel
+				MAXTHRUST:
+					Type: scalar
+					Tooltip: Sum of active maximum thrusts
+				FACING:
+					Type: direction
+					Tooltip: The way the vessel is pointed
+				MASS:
+					Type: scalar_tons
+					Tooltip: Mass of the ship
+				WETMASS:
+					Type: scalar_tons
+					Tooltip: Mass of the ship fully fuelled
+				DRYMASS:
+					Type: scalar_tons
+					Tooltip: Mass of the ship with no resources
+				VERTICALSPEED:
+					Type: scalar_ms
+					Tooltip: How fast the ship is moving “up”
+				SURFACESPEED:
+					Type: scalar_ms
+					Tooltip: How fast the ship is moving “horizontally”
+				AIRSPEED:
+					Type: scalar_ms
+					Tooltip: How fast the ship is moving relative to the air
+				TERMVELOC TY:
+					Type:scalar_ms
+					Tooltip: terminal velocity of the vessel
+				SHIPNAME:
+					Type: string
+					Tooltip: The name of the vessel
+				NAME:
+					Type: string
+					Tooltip: Synomym for SHIPNAME
+				ANGULARMOMENTUM:
+					Type: Vector
+					Tooltip: In SHIP_RAW
+				ANGULARVEL:
+					Type: Vector
+					Tooltip: In SHIP_RAW
+				SENSORS:
+					Type: VesselSensors
+					Tooltip: Sensor data
+				LOADED:
+					Type: Boolean
+					Tooltip: loaded into KSP physics engine or “on rails”
+				PATCHES:
+					Type: List
+					Tooltip: Orbit patches
+				ROOTPART:
+					Type: Part
+					Tooltip: Root Part of this vessel
+				PARTS:
+					Type: List
+					Tooltip: all Parts
+				RESOURCES:
+					Type: List
+					Tooltip: all AggrgateResources
+				PARTSNAMED(name):
+					Type: List
+					Tooltip: Parts by NAME
+				PARTSTITLED(title):
+					Type: List
+					Tooltip: Parts by TITLE
+				PARTSTAGGED(tag):
+					Type: List
+					Tooltip: Parts by TAG
+				PARTSDUBBED(name):
+					Type: List
+					Tooltip: Parts by NAME, TITLE or TAG
+				MODULESNAMED(name):
+					Type: List
+					Tooltip: PartModules by NAME
+				PARTSINGROUP(group):
+					Type: List
+					Tooltip: Parts by action group
+				MODULESINGROUP(group):
+					Type: List
+					Tooltip: PartModules by action group
+				ALLPARTSTAGGED():
+					Type: List
+					Tooltip: Parts that have non-blank nametags 
+		Control
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+		ManeuverNode
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+		Engine
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+		AggregateResource
+			Type: struct
+			Type: AggregateResource
+			Tooltip: 
+			Help: http://ksp-kos.github.io/KOS_DOC/structures/vessels/aggregateresource.html
+			Options:
+				Name:
+					Type: string
+					Tooltip: 
+				Amount:
+					Type: scalar
+					Tooltip: 
+				Capacity:
+					Type: scalar
+					Tooltip: 
+				Parts:
+					Type: list
+					Tooltip: 
+		DockingPort
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+		Gimbal
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+		Stage
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+		Part
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+		PartModule
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+		Sensor
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 
+		VesselSensors
+			Type: struct
+			Type: 
+			Tooltip: 
+			Help:
+			Options: 

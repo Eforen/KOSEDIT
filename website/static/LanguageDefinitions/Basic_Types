@@ -1,0 +1,40 @@
+latlng
+scalar_deg_properties
+	Type: scalar_deg
+	Tooltip: 
+	Help: http://en.wikipedia.org/wiki/Scalar_(mathematics)
+	Options:
+vector
+	Type: scalar_deg
+	Tooltip: 
+	Help: http://en.wikipedia.org/wiki/Scalar_(mathematics)
+	Options:
+		X
+			Type: scalar
+			Tooltip: The x component of the vector.
+		Y
+			Type: scalar
+			Tooltip: The y component of the vector.
+		Y
+			Type: scalar
+			Tooltip: The z component of the vector.
+		MAG
+			Type: scalar
+			Tooltip: The magnitude of the vector, as a scalar number, by the Pythagorean Theorem.
+		NORMALIZED
+			Type: Vector
+			Tooltip: This creates a unit vector pointing in the same direction as this vector. This is the same effect as multiplying the vector by the scalar 1 / vec:MAG.
+		SQRMAGNITUDE
+			Type: scalar
+			Tooltip: The magnitude of the vector, squared. Use instead of vec:MAG^2 if you need to square of the magnitude as this skips the step in the Pythagorean formula where you take the square root in the first place. Taking the square root and then squaring that would introduce floating point error needlessly.
+		DIRECTION
+			Type: Direction
+			Tooltip: [GET] The vector rendered into a Direction [SET] Tells the vector to keep its magnitude as it is but point in a new direction, adjusting its (x,y,z) numbers accordingly.
+		VEC
+			Type: Vector
+			Tooltip: This is a suffix that creates a COPY of this vector. Useful if you want to copy a vector and then change the copy. Normally if you SET v2 TO v1, then v1 and v2 are two names for the same vector and changing one would change the other.
+direction_properties
+	Type: direction
+	Tooltip: 
+	Help: http://ksp-kos.github.io/KOS_DOC/math/direction.html#structure:DIRECTION
+	Options:
