@@ -1,5 +1,6 @@
 # Built Files
 dist
+.publish
 
 # Logs
 logs

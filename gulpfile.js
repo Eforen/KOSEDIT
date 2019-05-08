@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var deploy = require('gulp-gh-pages');
+var ghpages = require('gh-pages');
 var concat = require('gulp-concat'); // Gulp File concatenation plugin
 
 
@@ -32,7 +32,6 @@ gulp.task('build', gulp.series(['static', 'js', 'jsConcat']));
 /**
  * Push build to gh-pages
  */
-gulp.task('deploy', gulp.series(['build'], function () {
-    return gulp.src("./dist/**/*")
-        .pipe(deploy())
+gulp.task('deploy', gulp.series(['build'], function (cb) {
+    ghpages.publish(path.join(process.cwd(), 'dist'), cb);
 }));
