@@ -1,4 +1,10 @@
+/****************************
+ ** KerboScript Generators **
+ ****************************/
+
+// Start of Base File
 /**
+ * Some of this file falls under the following license
  * @license
  * Visual Blocks Language
  *
@@ -218,3 +224,5 @@ Blockly.kOS.scrub_ = function(block, code) {
   var nextCode = Blockly.kOS.blockToCode(nextBlock);
   return commentCode + code + nextCode;
 };
+
+// End of Base File
