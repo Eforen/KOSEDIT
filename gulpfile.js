@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var ghpages = require('gh-pages');
 var concat = require('gulp-concat'); // Gulp File concatenation plugin
+var path = require('path');
 
 
 gulp.task('static', gulp.series(function () {
